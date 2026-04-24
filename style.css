@@ -254,7 +254,7 @@ img { display: block; max-width: 100%; }
    ============================================================ */
    .hero {
     background-color: var(--c-700);
-    background-image: url('images/hero-bg.jpg');
+    background-image: url('Images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
