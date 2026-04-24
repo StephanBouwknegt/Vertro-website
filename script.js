@@ -76,4 +76,3 @@ function handleSubmit(e) {
   btn.style.background = 'var(--c-500)';
   btn.disabled = true;
 }
-</script>
