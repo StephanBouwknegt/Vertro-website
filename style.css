@@ -1045,23 +1045,29 @@ input[type="range"]::-webkit-slider-thumb:hover {
    SCROLL REVEAL (lightweight, no library needed)
    ============================================================ */
 .reveal {
-  transition: opacity 560ms cubic-bezier(0.25, 0.1, 0.25, 1),
-              transform 560ms cubic-bezier(0.25, 0.1, 0.25, 1);
-}
-
-/* Only hide elements when JS has loaded — prevents invisible content in Safari */
-.js-ready .reveal {
   opacity: 0;
   transform: translateY(20px);
+  transition: opacity 560ms cubic-bezier(0.25, 0.1, 0.25, 1),
+              transform 560ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  animation: revealFallback 0.6s ease 1.2s forwards;
 }
 
-.js-ready .reveal.visible {
+.reveal.visible {
   opacity: 1;
   transform: translateY(0);
+  animation: none;
 }
 
-.js-ready .reveal--delay-1 { transition-delay: 80ms; }
-.js-ready .reveal--delay-2 { transition-delay: 160ms; }
-.js-ready .reveal--delay-3 { transition-delay: 240ms; }
-.js-ready .reveal--delay-4 { transition-delay: 320ms; }
-.js-ready .reveal--delay-5 { transition-delay: 400ms; }
+/* Fallback: if JS doesn't fire, reveal after 1.2s */
+@keyframes revealFallback {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal--delay-1 { transition-delay: 80ms; }
+.reveal--delay-2 { transition-delay: 160ms; }
+.reveal--delay-3 { transition-delay: 240ms; }
+.reveal--delay-4 { transition-delay: 320ms; }
+.reveal--delay-5 { transition-delay: 400ms; }
