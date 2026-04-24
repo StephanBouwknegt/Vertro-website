@@ -1049,11 +1049,21 @@ input[type="range"]::-webkit-slider-thumb:hover {
   transform: translateY(20px);
   transition: opacity 560ms cubic-bezier(0.25, 0.1, 0.25, 1),
               transform 560ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  animation: revealFallback 0.6s ease 1.2s forwards;
 }
 
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+  animation: none;
+}
+
+/* Fallback: if JS doesn't fire, reveal after 1.2s */
+@keyframes revealFallback {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .reveal--delay-1 { transition-delay: 80ms; }
