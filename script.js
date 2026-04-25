@@ -2,10 +2,6 @@
    VERTRO — Shared JavaScript
    ============================================================= */
 
-// Add js-ready immediately so CSS can safely use opacity:0 for animations
-// Without this, Safari and other browsers show blank content
-document.documentElement.classList.add('js-ready');
-
 // ── Mobile nav toggle ──
 const navToggle = document.getElementById('nav-toggle');
 const navLinks  = document.getElementById('nav-links');
@@ -76,3 +72,4 @@ function handleSubmit(e) {
   btn.style.background = 'var(--c-500)';
   btn.disabled = true;
 }
+</script>
